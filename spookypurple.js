@@ -131,7 +131,7 @@ void main()
 }`
 
 let height = window.innerHeight;
-let width = height * 3/5;
+let width = window.innerWidth;
 
 const planeMesh = new THREE.Mesh(
     new THREE.PlaneGeometry(width, height),
@@ -145,10 +145,9 @@ const planeMesh = new THREE.Mesh(
 scene.add(planeMesh)
 
 const renderer = new THREE.WebGLRenderer();
-renderer.setSize(imageElement.offsetWidth, imageElement.offsetHeight);
+renderer.setSize(width, height);
 
-imageContainer.appendChild(renderer.domElement);
-
+document.body.appendChild(renderer.domElement);
 
 
 let startTime = Date.now(); 
