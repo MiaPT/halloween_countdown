@@ -1,8 +1,10 @@
+// used shader from https://www.shadertoy.com/view/tsccRX with some modifications
+
 import * as THREE from 'three';
 
 const imageContainer = document.getElementById("bgContainer");
 const imageElement = document.getElementById("background");
-
+const imageElement2 = document.getElementById("purple");
 const scene = new THREE.Scene();
 
 const camera = new THREE.PerspectiveCamera(
@@ -12,21 +14,19 @@ const camera = new THREE.PerspectiveCamera(
 camera.position.z = 2;
 
 const texture = new THREE.TextureLoader().load(imageElement.src);
+const texture2 = new THREE.TextureLoader().load(imageElement2.src);
 
 /*
 
 uniform vec3      iResolution;           // viewport resolution (in pixels)
 uniform float     iTime;                 // shader playback time (in seconds)
-uniform samplerXX iChannel0..3;          // input channel. XX = 2D/Cube
-                
+uniform samplerXX iChannel0..3;          // input channel. XX = 2D/Cube       
 
 */
 
 
-
-
 const shaderUniforms = {
-    iChannel0: {value: texture},
+    iChannel0: {value: texture2},
     iChannel1: {value: texture},
     iResolution: {value: new THREE.Vector3(500, 500, 0)},
     iTime: {value: 0.0}
@@ -125,20 +125,16 @@ void main()
 		woods.rgb += b*f;
 		d += 3.5;
 	}
-    
-    // lightning
-    //float lightning = sin(time*sin(time*10.));				// lighting flicker
-    //lightning *= pow(max(0., sin(time+sin(time))), 2.)/200.;		// lightning flash
-    //woods.rgb *= 0.6 + 0.004*lightning*mix(0.5, .1, time*time);	// composite lightning
-    //woods.rgb *= 1.-dot(uv-=.5, uv); 
 
     // Output to screen
     gl_FragColor = col * (1.0 - woods.a) + woods * woods.a;
 }`
 
+let height = window.innerHeight;
+let width = height * 3/5;
 
 const planeMesh = new THREE.Mesh(
-    new THREE.PlaneGeometry(2, 2),
+    new THREE.PlaneGeometry(width, height),
     new THREE.ShaderMaterial({
         uniforms: shaderUniforms,
         vertexShader,
