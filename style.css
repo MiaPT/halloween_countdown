@@ -1,6 +1,11 @@
+@font-face {
+    font-family: creepster;
+    src: url(font/Creepster-Regular.otf);
+    
+  }
+
 body{
     margin: 0;
-    /* background-color: #6709be; */
     flex: auto;
 }
 
@@ -37,6 +42,8 @@ body{
     top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
-    color: white;
+    color: darkorange;
     text-align: center;
+    font-family: creepster, sans-serif;
+    font-size: xx-large;
 }
