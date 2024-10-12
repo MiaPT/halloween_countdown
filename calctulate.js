@@ -21,5 +21,20 @@ if (timeLeft < 3){
 document.getElementById("countdown").innerHTML = "" + timeLeft + " " + unit
 
 
+const emojiList = ["🎃",  "👽", "🕷️", "💀", "🦇", "🕸️", "🍬"]
 
-
+emojiList.forEach((emoji, index) => {
+    const emojiElement = document.createElement("div")
+    
+    const css = { 
+        position: "absolute",
+        animationName: "spin",
+        animationDuration: "14s",
+        animationIterationCount: "infinite",
+        animationTimingFunction: "linear",
+        animationDelay: `-${index * 2}s`,
+     }
+     Object.assign(emojiElement.style, css)
+    emojiElement.innerHTML = emoji
+    document.getElementById("emojis").appendChild(emojiElement)
+})

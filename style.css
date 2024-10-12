@@ -1,7 +1,6 @@
 @font-face {
     font-family: creepster;
     src: url(font/Creepster-Regular.otf);
-    
   }
 
 body{
@@ -39,11 +38,36 @@ body{
 
 .text-container{
     position: absolute;
-    top: 40%;
+    top: 45%;
     left: 50%;
     transform: translate(-50%, -50%);
     color: darkorange;
     text-align: center;
     font-family: creepster, sans-serif;
-    font-size: xx-large;
+    font-size: 3rem;
+}
+
+#countdown{
+    font-size: 10rem;
+}
+
+#emojis{
+
+    font-size: 3rem;
+    position: absolute;
+    top: 45%;
+    left: 49%;
+
+}
+
+@keyframes spin{
+    0% { 
+        transform: rotate(0deg)  
+              translateY(400px) rotate(0deg); 
+    } 
+
+    100% { 
+        transform: rotate(360deg)  
+              translateY(400px) rotate(-360deg); 
+    } 
 }
