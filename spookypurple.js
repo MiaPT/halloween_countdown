@@ -131,6 +131,19 @@ void main()
     gl_FragColor = col * (1.0 - woods.a) + woods * woods.a;
 }`
 
+
+function handleResize() {
+    let height = window.innerHeight;
+    let width = window.innerWidth;
+    
+    renderer.setSize(width, height)
+    renderer.render(scene, camera)
+}
+
+const c = document.body
+let observer = new ResizeObserver(handleResize)
+observer.observe(c)
+
 let height = window.innerHeight;
 let width = window.innerWidth;
 
