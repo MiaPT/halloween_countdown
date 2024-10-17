@@ -1,4 +1,5 @@
 // used shader from https://www.shadertoy.com/view/tsccRX with some modifications
+// cloud texture from https://www.pngwing.com/en/free-png-pyweq 
 
 import * as THREE from 'three';
 

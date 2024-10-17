@@ -22,6 +22,7 @@ document.getElementById("countdown").innerHTML = "" + timeLeft + " " + unit
 
 
 const emojiList = ["🎃",  "👽", "🕷️", "💀", "🦇", "🕸️", "🍬"]
+const animationDuration = 24
 
 emojiList.forEach((emoji, index) => {
     const emojiElement = document.createElement("div")
@@ -29,10 +30,10 @@ emojiList.forEach((emoji, index) => {
     const css = { 
         position: "absolute",
         animationName: "spin",
-        animationDuration: "14s",
+        animationDuration: `${animationDuration}s`,
         animationIterationCount: "infinite",
         animationTimingFunction: "linear",
-        animationDelay: `-${index * 2}s`,
+        animationDelay: `-${(animationDuration/emojiList.length) * index}s`,
      }
      Object.assign(emojiElement.style, css)
     emojiElement.innerHTML = emoji
