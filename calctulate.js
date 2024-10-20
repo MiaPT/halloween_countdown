@@ -19,3 +19,4 @@ if (timeLeft < 3){
 
 
 document.getElementById("countdown").innerHTML = "" + timeLeft + " " + unit
+document.getElementById("title").innerHTML = "" + timeLeft + " " + unit.toLowerCase() + " til halloween:)"
